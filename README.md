@@ -13,7 +13,7 @@ This project implements and analyzes three fundamental algorithms: **Selection S
   * **Time Complexity:** $O(\log n)$
 
 ## Experimental Results
-The following table shows execution times measured in nanoseconds (ns) from the experiment.
+The following table shows execution times measured in nanoseconds (ns) based on the program output.
 
 | Dataset Size | Selection Sort (Basic) | Quick Sort (Advanced) | Binary Search |
 | :--- | :--- | :--- | :--- |
@@ -22,12 +22,9 @@ The following table shows execution times measured in nanoseconds (ns) from the 
 | **1000 (Large)** | 5,323,300 ns | 596,700 ns | 1,300 ns |
 
 ## Performance Analysis
-* **Which algorithm was faster?** On small datasets ($n=10$), Selection Sort was faster. However, for $n=100$ and $n=1000$, Quick Sort significantly outperformed Selection Sort because $O(n \log n)$ scales much better than $O(n^2)$.
-* **Input Size Impact:** As the size increased, Selection Sort's time grew dramatically (quadratically), while Quick Sort's growth was more controlled, matching Big-O expectations.
-* **Binary Search Efficiency:** Binary Search remained extremely fast regardless of size, showing why $O(\log n)$ is superior for searching in sorted data. It requires a sorted array to divide the search space correctly.
-
-## Screenshots
-![Console Output](docs/screenshots/image_8aacd6.png)
+* **Which algorithm was faster?** On the smallest dataset ($n=10$), Selection Sort showed a faster execution time. However, as the dataset size increased to $n=100$ and $n=1000$, Quick Sort significantly outperformed Selection Sort. This aligns with the theory that $O(n \log n)$ scales much more efficiently than $O(n^2)$.
+* **Input Size Impact:** The performance gap widened drastically with larger inputs. While Selection Sort's time increased by more than 50 times when moving from 100 to 1000 elements, Quick Sort's time increased much more gradually.
+* **Binary Search Efficiency:** Binary Search demonstrated consistent efficiency across all sizes, proving that $O(\log n)$ complexity is ideal for large-scale searching, provided the data is pre-sorted.
 
 ## Reflection
-This assignment demonstrated the gap between theoretical complexity and practical performance. I learned that while Selection Sort is easier to implement, it becomes inefficient for large datasets. The primary challenge was ensuring the array was correctly sorted before performing the Binary Search. Implementation of the partition logic in Quick Sort also required careful attention to index handling.
+This assignment provided practical insight into algorithm efficiency. It was interesting to observe that for very small arrays, the overhead of recursion in Quick Sort makes it slower than a simple Selection Sort. However, for any practical application involving larger data, the choice of an advanced algorithm is essential. The implementation also reinforced the importance of proper data preparation, such as sorting before a binary search.
